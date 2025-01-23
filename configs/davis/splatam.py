@@ -1,9 +1,7 @@
 import os
 from os.path import join as p_join
 
-scenes = ["room0", "room1", "room2",
-          "office0", "office1", "office2",
-          "office_", "office4"]
+scenes = ["car-turn"]
 
 primary_device="cuda:0"
 seed = 0
@@ -15,7 +13,7 @@ mapping_window_size = 24
 tracking_iters = 40
 mapping_iters = 60
 
-group_name = "Replica"
+group_name = "davis"
 run_name = f"{scene_name}_{seed}"
 
 config = dict(
@@ -46,11 +44,11 @@ config = dict(
         eval_save_qual=True,
     ),
     data=dict(
-        basedir="./data/Replica",
-        gradslam_data_cfg="./configs/data/replica.yaml",
+        basedir="./data/davis",
+        gradslam_data_cfg="./configs/data/davis.yaml",
         sequence=scene_name,
-        desired_image_height=680,
-        desired_image_width=1200,
+        desired_image_height=1080,
+        desired_image_width=1920,
         start=0,
         end=-1,
         stride=1,
